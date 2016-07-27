@@ -1,0 +1,43 @@
+{
+  "name": "Publisher-Admin-Portal",
+  "version": "0.1.0",
+  "main": "server/app.js",
+  "dependencies": {
+    "async": "2.0.0-rc.2",
+    "body-parser": "1.15.x",
+    "cors": "2.7.x",
+    "custom-error-generator": "7.0.x",
+    "dotenv": "2.0.x",
+    "errorhandler": "1.4.x",
+    "express": "4.13.x",
+    "is-my-json-valid": "2.13.x",
+    "lodash": "4.7.x",
+    "moment": "2.14.x",
+    "morgan": "1.7.x",
+    "winston": "2.2.x"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "chai": "3.5.x",
+    "istanbul": "0.4.x",
+    "karma": "1.1.2",
+    "karma-coverage": "1.1.x",
+    "karma-mocha": "1.1.x",
+    "karma-phantomjs-launcher": "1.0.x",
+    "karma-sinon-chai": "1.2.x",
+    "mocha": "2.4.x",
+    "node-mocks-http": "1.5.x",
+    "rewire": "2.5.x",
+    "sinon": "1.17.x",
+    "sinon-chai": "2.8.x",
+    "supertest": "1.2.x"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha $( find server -name '*.spec.js' )"
+  },
+  "private": true
+}

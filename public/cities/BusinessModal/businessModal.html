@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <button type="button"
+          class="closeModal"
+          ng-click="businessModalVm.cancel()"
+          aria-label="Close">
+    <span aria-hidden="true">
+      &times;
+    </span>
+  </button>
+  <h3 class="modal-title">Update Business</h3>
+</div>
+<div class="modal-body">
+  <dl class="dl-horizontal">
+    <dt>Id</dt>
+    <dd>{{businessModalVm.business.id}}</dd>
+
+    <dt>Name</dt>
+    <dd>{{businessModalVm.business.name}}</dd>
+
+    <dt>Address</dt>
+    <dd class="inputTextWrapper">
+      <input type="text"
+             name="address"
+             class="inputTextBox"
+             ng-model="businessModalVm.business.address"
+             required>
+      <div ng-show="!businessModalVm.business.address.length"
+         class="inputTextBoxIcon glyphicon glyphicon-ban-circle">
+      </div>
+    </dd>
+  </dl>
+</div>
+
+<div class="modalButton
+            leftModalButton
+            text-center"
+     ng-class="{ disabledModalButton: !businessModalVm.business.address.length }"
+     ng-click="businessModalVm.ok( 'update' )">
+  Update
+</div>
+<div class="modalButton
+            rightModalButton
+            text-center"
+     ng-click="businessModalVm.ok( 'delete' )">
+  Delete
+</div>

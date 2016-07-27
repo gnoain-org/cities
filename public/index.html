@@ -1,0 +1,70 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cities</title>
+
+    <!-- CSS -->
+    <!-- Vendor -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          type="text/css">
+    <!-- App -->
+    <link rel="stylesheet"
+          href="/assets/css/style.css"
+          type="text/css" />
+
+    <!-- JS -->
+    <!-- Vendor -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script> -->
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- App -->
+    <script src="/app.js"></script>
+    <script src="/Cities/cities.service.js"></script>
+    <script src="/Cities/cities.controller.js"></script>
+    <script src="/Cities/BusinessModal/businessModal.controller.js"></script>
+  </head>
+  <body>
+    <div
+      ng-app="CitiesApp"
+      ng-controller="CitiesController as vm">
+
+      <div class="col-xs-6
+                  cityList">
+        <!-- List of cities -->
+        <ul>
+          <li class="cityRow"
+              ng-class-even="'even'"
+              ng-class-odd="'odd'"
+              ng-repeat="city in vm.cities">
+            {{ city.city }}
+            <i class="glyphicon glyphicon-menu-right">
+
+            </i>
+
+            <!-- List of city businesses -->
+            <ul class="businessList">
+              <li class="cityRow"
+                  ng-class-even="'even'"
+                  ng-class-odd="'odd'"
+                  ng-repeat="business in city.businesses"
+                  ng-click="vm.updateCityBusiness( city.city, business )">
+                {{ business.name }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

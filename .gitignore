@@ -1,0 +1,8 @@
+node_modules
+bower_components
+coverage
+coverageFront
+.DS_Store
+logs
+*.log
+.env

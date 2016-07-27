@@ -1,0 +1,142 @@
+body {
+  background-color: #2d3f49;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+  font-size: 2em;
+  color: #7cc2e2;
+}
+
+/*******************************************************************************
+City List
+*******************************************************************************/
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #3F5765;
+}
+
+.cityList {
+  position: relative;
+  padding: 0;
+}
+
+.cityList  li:hover .glyphicon {
+  display: block;
+}
+
+.cityList .glyphicon {
+  display: none;
+  float: right;
+}
+
+.cityList  li:hover > .businessList {
+  left: 100%;
+  display: block;
+}
+
+.cityList .businessList {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.cityRow {
+  padding: 1.5em 0.5em;
+}
+
+.even{
+  background-color: #152935;
+}
+
+.odd{
+  background-color: #394b54;
+}
+
+/*******************************************************************************
+Modal
+*******************************************************************************/
+
+dd, dt {
+  line-height: 2.42857143
+}
+
+.modalButton {
+  width: 50%;
+  padding: 1em 0.5em;
+}
+
+.disabledModalButton {
+  background-color: #7cc2e2;
+  cursor: not-allowed !important;
+  opacity: .65;
+}
+
+.modalButton:hover {
+  background-color: #394b54;
+  cursor: pointer;
+}
+
+.leftModalButton {
+  float: left;
+  background-color: #3F5765;
+}
+
+.rightModalButton {
+  float: right;
+  background-color: #152935;
+}
+
+.inputTextWrapper {
+  position: relative;
+}
+
+.inputTextBox {
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    background-color: #3F5765;
+    border: 0;
+}
+
+.inputTextBoxIcon {
+    position: absolute;
+    right: 10px;
+    top:13px;
+}
+
+.closeModal {
+    border: 0;
+    background-color: inherit;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.closeModal:hover {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*******************************************************************************
+Vendor Overrides
+*******************************************************************************/
+
+.modal-header {
+  border: 0;
+}
+
+.modal-content {
+  border-radius: 0;
+  background-color: #394b54;
+}
