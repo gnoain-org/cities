@@ -2,6 +2,8 @@
 Simple Angular and Node test app to manage a list of cities and its businesses
 
 ## Considerations
+The cities information is loaded in memory, so after updates and deletions, a restart of the app should bring back the original values
+
 The app has some aspects that should be improved in further iterations:
  * Proper error management and exception handling in the front end
  * Front end unit test coverage
