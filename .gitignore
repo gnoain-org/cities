@@ -1,7 +1,8 @@
 node_modules
 bower_components
 coverage
-coverageFront
+coverageHtml
+reports
 .DS_Store
 logs
 *.log
