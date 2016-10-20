@@ -41,13 +41,15 @@ module.exports = function(config) {
 
     coverageReporter:   {
         reporters: [
-            { type: 'html', dir:'coverageFront/' },
-            { type: 'text-summary' }
+            { type: 'html', dir:'coverageHtml/' },
+            { type: 'text-summary' },
+            { type: 'cobertura', dir: 'coverage', file:'front.xml' }
         ]
     },
 
     junitReporter: {
-        outputFile: 'test-results.xml'
+        outputDir: './reports',
+        outputFile: 'front.xml'
     },
 
     // web server port
