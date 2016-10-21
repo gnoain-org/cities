@@ -38,7 +38,8 @@
   },
   "scripts": {
     "start": "node server/app.js",
-    "test": "./node_modules/.bin/istanbul cover --report cobertura ./node_modules/.bin/_mocha $( find server -name '*.spec.js' )"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha $( find server -name '*.spec.js' )",
+    "test-cobertura": "./node_modules/.bin/istanbul cover --report cobertura ./node_modules/.bin/_mocha $( find server -name '*.spec.js' )"
   },
   "private": true
 }
