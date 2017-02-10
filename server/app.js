@@ -25,4 +25,6 @@ server.listen( process.env.PORT, process.env.IP, function() {
   logger.info( 'Server is up in http://' + process.env.IP + ':' + process.env.PORT + ' in %s mode', process.env.NODE_ENV );
 } );
 
+console.log( 'PITO' );
+
 module.exports = app;
