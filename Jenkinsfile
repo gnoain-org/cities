@@ -28,7 +28,7 @@ node {
         def scannerHome = tool 'Sonar Scanner';
         withSonarQubeEnv('Sonar Server') {
             //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
-        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.inclusions=server/**/*,public/**/*"
+        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.inclusions=server/**/*,public/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16"
         }
     }
 
