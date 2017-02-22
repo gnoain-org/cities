@@ -30,10 +30,10 @@ node {
         withCredentials( [ [ $class: 'UsernamePasswordMultiBinding', credentialsId: '<CREDENTIAL_ID>',
             secretVariable: 'SONAR_OUTH_TOKEN' ] ] ) {
             sh 'echo secret=$SONAR_OAUTH_TOKEN}'
-            withSonarQubeEnv('Sonar Server') {
-                //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
-                 sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.inclusions=server/**/*,public/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_OAUTH_TOKEN} -Dsonar.github.repository=gnoain-org/cities"
-            }
+        }
+        withSonarQubeEnv('Sonar Server') {
+            //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
+             sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.inclusions=server/**/*,public/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_OAUTH_TOKEN} -Dsonar.github.repository=gnoain-org/cities"
         }
 
     }
