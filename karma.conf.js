@@ -37,19 +37,13 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'progress', 'coverage', 'dots', 'junit' ],
+    reporters: [ 'progress', 'coverage', 'dots' ],
 
     coverageReporter:   {
         reporters: [
-            { type: 'html', dir:'coverageHtml/' },
-            { type: 'text-summary' },
-            { type: 'cobertura', dir: 'coverage', file:'front.xml' }
+            { type: 'lcov', dir:'coverage/front' },
+            { type: 'text-summary' }
         ]
-    },
-
-    junitReporter: {
-        outputDir: './reports',
-        outputFile: 'front.xml'
     },
 
     // web server port
