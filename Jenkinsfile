@@ -20,10 +20,10 @@ node {
     stage 'Backend Tests'
         sh 'npm test'
         def exists = fileExists( 'coverage/back/lcov.info' );
-        if ( exists ) {
+        if ( exists ) {  
+            sh "sed -i 's/.*\/server/SF:server/' coverage/back/lcov.info"
             def f = readFile('coverage/back/lcov.info');
-            sh "sed -n 's@^SF:/app/@SF:@/p' coverage/back/lcov.info"
-            // echo "${f}"
+             echo "${f}"
         } else {
             echo "POLLACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         }
