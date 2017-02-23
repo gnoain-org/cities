@@ -19,6 +19,7 @@ node {
 
     stage 'Backend Tests'
         sh 'npm test'
+        sh "echo ${readFile('coverage/lcov.info')}"
 
     stage 'Frontend Tests'
         sh 'karma start'
@@ -29,7 +30,6 @@ node {
         withCredentials( [ [ $class: 'UsernamePasswordMultiBinding', credentialsId: 'sonar-token',
             usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_TOKEN' ] ] ) {
             withSonarQubeEnv('Sonar Server') {
-                sh "echo ${readFile("coverage/lcov.info")}"
                 //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
                 sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.inclusions=server/**/*.js,coverage/**/lcov.info -Dsonar.exclusions=server/**/*.spec.js -Dsonar.tests=. -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
             }
