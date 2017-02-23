@@ -13,15 +13,15 @@ node {
     stage 'Checkout'
         checkout scm
 
-   // stage 'Install Dependencies'
-    //    sh 'npm install'
-    //    sh 'bower install'
+    stage 'Install Dependencies'
+        sh 'npm install'
+        sh 'bower install'
 
-   // stage 'Backend Tests'
-   //     sh 'npm test'
+    stage 'Backend Tests'
+        sh 'npm test'
 
-   // stage 'Frontend Tests'
-    //    sh 'karma start'
+    stage 'Frontend Tests'
+        sh 'karma start'
     
     stage('SonarQube analysis') {
         // requires SonarQube Scanner 2.8+
@@ -48,7 +48,7 @@ node {
             withSonarQubeEnv('Sonar Server') {
                 sh "echo ${fileExists("coverage/lcov.info")}"
                 //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
-                sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info"
+                sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
             }
         }
 
