@@ -11,17 +11,11 @@ require( 'dotenv' ).load();
 var Logger = require( './components/Logger' );
 Logger.initialize();
 
-if( true ) {
-  if( true ) {
-    console.log( 'CACA' );  console.log( 'CULO' 
-  }
+function caca( culo ) {
+  console.log( 'pedo' );
 }
 
-if( true ) {
-  if( true ) {
-    console.log( 'CACA' );  console.log( 'CULO' ); 
-  }
-}
+caca( 'culo', 'pedo', 'pis' );
 
 // Create Server
 var express = require( 'express' );
