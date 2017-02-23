@@ -19,8 +19,9 @@ node {
 
     stage 'Backend Tests'
         sh 'npm test'
-        def f = readFile('coverage/lcov.info');
-        if ( f ) {
+        def exists = fileExists( 'coverage/back/lcov.info' );
+        if ( exists ) {
+            def f = readFile('coverage/back/lcov.info');
             echo "${f}"
         } else {
             echo "POLLACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
