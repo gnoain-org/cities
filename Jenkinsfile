@@ -31,7 +31,7 @@ node {
             withSonarQubeEnv('Sonar Server') {
                 sh "echo ${fileExists("coverage/lcov.info")}"
                 //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
-                sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,./**/*.spec.js -Dsonar.tests=. -Dsonar.tests.inclusions=./**/*.spec.js -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.tests=server -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
+                sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,**/*.spec.js -Dsonar.tests=. -Dsonar.tests.inclusions=**/*.spec.js -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.tests=server -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
             }
         }
     }
