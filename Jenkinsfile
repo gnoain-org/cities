@@ -24,23 +24,6 @@ node {
         sh 'karma start'
     
     stage('SonarQube analysis') {
-        // requires SonarQube Scanner 2.8+
-        def scannerHome = tool 'Sonar Scanner';
-        def token = '4faf69e71bbd8ce12ecb997138e224fdd429431f';
-        withCredentials( [ [ $class: 'UsernamePasswordMultiBinding', credentialsId: 'sonar-token',
-            usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_TOKEN' ] ] ) {
-            sh "echo ${env.SONAR_TOKEN}";
-            sh "echo ${env.SONAR_USERNAME}";
-            withSonarQubeEnv('Sonar Server') {
-                //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
-                sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.inclusions=server/**/*,public/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities"
-            }
-        }
-
-
-    }
-
-    stage('SonarQube analysis') {
         def scannerHome = tool 'Sonar Scanner';
         def token = '4faf69e71bbd8ce12ecb997138e224fdd429431f';
         withCredentials( [ [ $class: 'UsernamePasswordMultiBinding', credentialsId: 'sonar-token',
@@ -48,11 +31,9 @@ node {
             withSonarQubeEnv('Sonar Server') {
                 sh "echo ${fileExists("coverage/lcov.info")}"
                 //   sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=moonshine -Dsonar.sources=. -Dsonar.inclusions=app/**/manager/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=7 -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.oauth=6157182195c11ea969bdc556a13752163eec9c16 "
-                sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
+                sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/* -Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.tests=server -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
             }
         }
-
-
     }
 
     // stage 'Build'
