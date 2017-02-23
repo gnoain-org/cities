@@ -19,7 +19,12 @@ node {
 
     stage 'Backend Tests'
         sh 'npm test'
-        sh "echo ${readFile('coverage/lcov.info')}"
+        def f = readFile('coverage/lcov.info');
+        if ( f ) {
+            echo "${f}"
+        } else {
+            echo "POLLACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        }
 
     stage 'Frontend Tests'
         sh 'karma start'
