@@ -21,7 +21,7 @@ node {
         sh 'npm test'
         def exists = fileExists( 'coverage/back/lcov.info' );
         if ( exists ) {  
-            sh 'sed -i \'s/.*\/server/SF:server/\' coverage/back/lcov.info'
+            sh "sed -i 's/.*\\/server/SF:server/' coverage/back/lcov.info"
             def f = readFile('coverage/back/lcov.info');
              echo "${f}"
         } else {
