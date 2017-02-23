@@ -23,7 +23,7 @@ node {
         if ( exists ) {
             def f = readFile('coverage/back/lcov.info');
             sh 'sed "s@^SF:/app/@SF:@" coverage/back/lcov.info'
-            echo "${f}"
+            // echo "${f}"
         } else {
             echo "POLLACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         }
