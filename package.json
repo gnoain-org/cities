@@ -19,6 +19,9 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "chai": "3.5.x",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-mocha-istanbul": "^5.0.2",
     "istanbul": "0.4.x",
     "karma": "1.1.2",
     "karma-coverage": "1.1.x",
@@ -38,7 +41,7 @@
   },
   "scripts": {
     "start": "node server/app.js",
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha $( find server -name '*.spec.js' )",
+    "test": "grunt mocha_istanbul",
     "test-cobertura": "./node_modules/.bin/istanbul cover --report cobertura ./node_modules/.bin/_mocha $( find server -name '*.spec.js' )"
   },
   "private": true
