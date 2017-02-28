@@ -71,7 +71,7 @@ node {
         // }    
     } catch( error ) {
         stage('Results') {
-            sh 'echo OH NOOOOOOO'
+            sh 'echo OH NOOOOOO'
             hygieiaBuildPublishStep buildStatus: 'Failure'
         }
     }
