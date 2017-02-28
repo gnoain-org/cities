@@ -41,6 +41,7 @@ node {
     }
     
     stage('Results') {
+        sh 'echo WEEE'
         hygieiaBuildPublishStep buildStatus: 'Success'
     }
 
