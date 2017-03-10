@@ -1,12 +1,8 @@
 pipeline:
   build:
     image: mhart/alpine-node:6
-    cache:
-      - node_modules
-      - .git
     commands:
-      - npm install
-      - npm test
+      - pwd
     environment:
       - PORT=6969
       - IP=localhost
