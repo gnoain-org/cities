@@ -6,7 +6,7 @@ pipeline:
     commands:
       - sudo chown ubuntu:ubuntu /tmp/npm
       - npm set cache /tmp/npm
-      - npm install
+      - npm install 
     environment:
       - PORT=6969
       - IP=localhost
