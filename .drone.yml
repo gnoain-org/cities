@@ -4,3 +4,7 @@ pipeline:
     commands:
       - npm install
       - npm test
+    environment:
+      - PORT=6969
+      - IP=localhost
+      - NODE_ENV=development
