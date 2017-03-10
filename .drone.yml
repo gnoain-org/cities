@@ -1,11 +1,10 @@
 pipeline:
   build:
     image: mhart/alpine-node:6
-    mount:
-      - /tmp/npm
+    cache:
+      mount:
+        - node_modules
     commands:
-      - sudo chown ubuntu:ubuntu /tmp/npm
-      - npm set cache /tmp/npm
       - npm install 
     environment:
       - PORT=6969
