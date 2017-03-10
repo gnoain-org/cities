@@ -1,9 +1,8 @@
 pipeline:
-  cache:
-    mount:
-      - /tmp/npm
   build:
     image: mhart/alpine-node:6
+    mount:
+      - /tmp/npm
     commands:
       - sudo chown ubuntu:ubuntu /tmp/npm
       - npm set cache /tmp/npm
