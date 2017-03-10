@@ -7,3 +7,7 @@ pipeline:
       - PORT=6969
       - IP=localhost
       - NODE_ENV=development
+cache:
+  mount:
+    - node_modules
+    - .git
