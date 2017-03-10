@@ -1,8 +1,11 @@
 pipeline:
+  cache:
+    mount:
+      - /drone/node_modules
   build:
     image: mhart/alpine-node:6
     commands:
-      - pwd
+      - npm install
     environment:
       - PORT=6969
       - IP=localhost
