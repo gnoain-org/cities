@@ -1,8 +1,6 @@
 pipeline:
   build:
     image: mhart/alpine-node:6
-    cache:
-      - node_modules
     commands:
       - npm install 
     environment:
