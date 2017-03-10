@@ -1,4 +1,4 @@
-# Cities App
+# Cities Appp
 Simple Angular and Node test app to manage a list of cities and its businesses
 
 ## Considerations
