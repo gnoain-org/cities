@@ -1,12 +1,13 @@
-build:
-  image: mhart/alpine-node:6
-  commands:
-    - npm install 
-  environment:
-    - PORT=6969
-    - IP=localhost
-    - NODE_ENV=development
-cache:
-  mount:
-    - node_modules
-    - .git
+pipeline:
+  build:
+    image: mhart/alpine-node:6
+    commands:
+      - npm install 
+    environment:
+      - PORT=6969
+      - IP=localhost
+      - NODE_ENV=development
+  cache:
+    mount:
+      - node_modules
+      - .git
