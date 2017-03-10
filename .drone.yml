@@ -1,7 +1,7 @@
 pipeline:
   build:
     image: mhart/alpine-node:6
-    mount:
+    cache:
       - node_modules
     commands:
       - npm install 
