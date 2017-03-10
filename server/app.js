@@ -7,6 +7,18 @@
 // Load configuration into environment variables
 require( 'dotenv' ).load();
 
+if( true ) {
+  if( true ) {
+    console.log( 'CACA' );  console.log( 'CULO' ); 
+  }
+}
+
+if( true ) {
+  if( true ) {
+    console.log( 'CACA' );  console.log( 'CULO' ); 
+  }
+}
+
 // Initialize Logger
 var Logger = require( './components/Logger' );
 Logger.initialize();
