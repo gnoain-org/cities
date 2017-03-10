@@ -4,8 +4,6 @@ pipeline:
   build:
     image: mhart/alpine-node:6
     commands:
-      - sudo chown ubuntu:ubuntu /tmp/npm
-      - npm set cache /tmp/npm
       - npm install 
     environment:
       - PORT=6969
