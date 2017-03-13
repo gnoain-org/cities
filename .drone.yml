@@ -20,14 +20,14 @@ pipeline:
       - "-Dsonar.github.oauth=${SONAR_TOKEN}"
       - "-Dsonar.github.repository=gnoain-org/cities"
       - "-Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
-  # dependencies:
-  #   image: mhart/alpine-node:6
-  #   commands:
-  #     - npm install
-  # test:
-  #   image: mhart/alpine-node:6
-  #   commands:
-  #     - npm test
+   dependencies:
+     image: mhart/alpine-node:6
+     commands:
+       - npm install
+   test:
+     image: mhart/alpine-node:6
+     commands:
+       - npm test
     environment:
       - PORT=6969
       - IP=localhost
