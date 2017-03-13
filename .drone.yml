@@ -3,11 +3,33 @@ cache:
     - node_modules
     - .git
 pipeline:
-  build:
-    image: mhart/alpine-node:6
-    commands:
-      - npm install 
+  analyse:
+    image: gnoain/sonar-scanner:latest
+    detach: true
+    command:
+      - "sonnar-runner"
+      - "-Dsonar.host.url=http://localhost:9000"
+      - "-Dsonar.sonar.projectBaseDir=/drone/src/github.com/gnoain-org/cities"
+      - "-Dsonar.projectKey=cities"
+      - "-Dsonar.sources=."
+      - "-Dsonar.tests=."
+      - "-Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js"
+      - "-Dsonar.test.inclusions=server/**/*.spec.js"
+      - "-Dsonar.analysis.mode=preview"
+      - "-Dsonar.github.pullRequest=${DRONE_PULL_REQUEST}"
+      - "-Dsonar.github.oauth=${SONAR_TOKEN}"
+      - "-Dsonar.github.repository=gnoain-org/cities"
+      - "-Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info"
+  # dependencies:
+  #   image: mhart/alpine-node:6
+  #   commands:
+  #     - npm install
+  # test:
+  #   image: mhart/alpine-node:6
+  #   commands:
+  #     - npm test
     environment:
       - PORT=6969
       - IP=localhost
       - NODE_ENV=development
+
