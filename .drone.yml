@@ -24,6 +24,7 @@ pipeline:
      image: mhart/alpine-node:6
      commands:
        - echo HOLA
+       - echo ${SONAR_TOKEN}
        - npm install
    test:
      image: mhart/alpine-node:6
