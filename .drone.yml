@@ -23,7 +23,7 @@ pipeline:
    dependencies:
      image: mhart/alpine-node:6
      commands:
-       - echo OLAA
+       - echo OLAAa
        - echo ${SONAR_TOKEN}
        - npm install
    test:
