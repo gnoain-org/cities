@@ -39,7 +39,7 @@ node {
                     sh "echo ${env.SONAR_USERNAME}"
                     sh "echo ${env.SONAR_TOKEN}"
                     sh "echo ${env.CHANGE_ID}"
-                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.analysis.mode=preview -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info" 
+                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.analysis.mode=publish -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.pullRequest=${env.CHANGE_ID} -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info" 
                 } 
             }
         
