@@ -32,14 +32,14 @@ node {
         
         stage 'SonarQube analysis'
             def scannerHome = tool 'Sonar Scanner'; 
-            def token = 'b1946567ca51f530d76edf0cacef391634287b2e'; 
+            //def token = 'b1946567ca51f530d76edf0cacef391634287b2e'; 
             withCredentials( [ [ $class: 'UsernamePasswordMultiBinding', credentialsId: 'sonar-token', 
                 usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_TOKEN' ] ] ) { 
                 withSonarQubeEnv('Sonar Server') { 
                     sh "echo ${env.SONAR_USERNAME}"
                     sh "echo ${env.SONAR_TOKEN}"
                     sh "echo ${env.CHANGE_ID}"
-                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.login=${token} -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.analysis.mode=preview -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info" 
+                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.login=${env.SONAR_USERNAME} -Dsonar.password=${env.SONAR_PASSWORD} -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.analysis.mode=preview -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info" 
                 } 
             }
         
