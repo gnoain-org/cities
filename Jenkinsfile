@@ -1,6 +1,6 @@
 node {
     stage 'Starting'
-        sh 'echo STARTIIIIIIIIIIIIIIIIING'
+        sh 'echo STARTIIIIIIING'
     try {
         def nodeHome = tool name: 'node-5.10.1', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
         env.PATH = "${nodeHome}/bin:${env.PATH}"
