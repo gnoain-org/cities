@@ -54,7 +54,7 @@ function hola() {
   return 'HEY';
 }
 
-hola( 'HOLA' );
+hola(  );
 
 function getAllCities( request, response ) {
     return responseSender.sendResponse( null, cities, response );
