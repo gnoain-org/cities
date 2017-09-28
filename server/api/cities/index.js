@@ -51,10 +51,10 @@ router.delete( '/:cityName/businesses/:businessId',  deleteCityBusiness );
 // *****************************************************************************
 
 function hola( saludo ) {
-  return 'HEY!';
+  return 'HEY!' + saludo;
 }
 
-hola( 'hey', 'sup' );
+hola( 'hey' );
 
 function getAllCities( request, response ) {
     return responseSender.sendResponse( null, cities, response );
