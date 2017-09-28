@@ -50,6 +50,12 @@ router.delete( '/:cityName/businesses/:businessId',  deleteCityBusiness );
 //  Route Functions
 // *****************************************************************************
 
+function hola() {
+  return 'HEY';
+}
+
+hola( 'HOLA' );
+
 function getAllCities( request, response ) {
     return responseSender.sendResponse( null, cities, response );
 }
