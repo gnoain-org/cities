@@ -36,8 +36,8 @@ node {
             withCredentials( [ [ $class: 'UsernamePasswordMultiBinding', credentialsId: 'sonar-token', 
                 usernameVariable: 'SONAR_USERNAME', passwordVariable: 'SONAR_TOKEN' ] ] ) { 
                 withSonarQubeEnv('Sonar Server') {
-                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info -Dsonar.analysis.mode=preview -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.pullRequest=${env.CHANGE_ID}"
-                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info -Dsonar.analysis.mode=publish" 
+                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.branch=${env.CHANGE_BRANCH} -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info -Dsonar.analysis.mode=preview -Dsonar.github.oauth=${env.SONAR_TOKEN} -Dsonar.github.repository=gnoain-org/cities -Dsonar.github.pullRequest=${env.CHANGE_ID}"
+                    sh "${scannerHome}/bin/sonar-scanner -X -Dsonar.branch=${env.CHANGE_BRANCH} -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectKey=cities -Dsonar.sources=. -Dsonar.tests=. -Dsonar.exclusions=node_modules/**/*,bower_components/**/*,server/**/*.spec.js -Dsonar.test.inclusions=server/**/*.spec.js -Dsonar.javascript.lcov.reportPaths=coverage/back/lcov.info -Dsonar.analysis.mode=publish" 
                 } 
             }
         
